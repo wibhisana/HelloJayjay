@@ -6,7 +6,7 @@ Belajar git modul from jayjay
 npm install
 ```
 
-###Start the app in development mode
+### Start the app in development mode
 ```bash
 npm run
 ```
