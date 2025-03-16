@@ -12,10 +12,22 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    // Untuk pengujian API
     testImplementation group: 'io.rest-assured', name: 'rest-assured', version: '5.5.1'
+    // Untuk pengujian berbasis BDD dengan Cucumber
     implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.21.1'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.21.1'
+    implementation 'com.google.guava:guava:29.0-jre'
+    testImplementation 'junit:junit:4.13'
 }
 
 test {
     useJUnitPlatform()
+}
+
+tasks.register('greetingTask') {
+    doLast {
+        String nama = project.hasProperty('nama') ? project.property('nama') : 'Gradle User'
+        println "Hello, $nama! Welcome to Gradle World!"
+    }
 }
